@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@theme {
+  /* Surface Hierarchy (No-Line Rule) */
+  --color-surface: var(--surface);
+  --color-surface-container-low: var(--surface-low);
+  --color-surface-container-highest: var(--surface-high);
+  
+  /* Base Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  /* Semantic */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ghost-border: var(--ghost-border);
+  
+  /* Typography */
+  --font-heading: var(--font-orbitron), sans-serif;
+  --font-body: var(--font-manrope), sans-serif;
+  --font-sans: var(--font-manrope), sans-serif;
+
+  /* Sharp Corners (0px) */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+}
+
+@layer base {
+  :root {
+    --background: #f8fafc;
+    --foreground: #020617;
+    --muted-foreground: #64748b;
+    
+    --surface: #ffffff;
+    --surface-low: #f1f5f9;
+    --surface-high: #e2e8f0;
+    
+    --primary: #4f46e5;
+    --primary-foreground: #ffffff;
+    
+    --secondary: #f1f5f9;
+    --secondary-foreground: #0f172a;
+
+    --accent: #e2e8f0;
+    --accent-foreground: #0f172a;
+
+    --border: #e2e8f0;
+    --ghost-border: rgba(0, 0, 0, 0.08);
+
+    --primary-gradient: linear-gradient(135deg, #4f46e5, #818cf8);
+    --primary-glow: rgba(79, 70, 229, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.6);
+  }
+
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #f8fafc;
+    --muted-foreground: #94a3b8;
+    
+    --surface: #0f0f11;
+    --surface-low: #141417;
+    --surface-high: #1e1e24;
+    
+    --primary: #6366f1;
+    --primary-foreground: #ffffff;
+    
+    --secondary: #141417;
+    --secondary-foreground: #f8fafc;
+
+    --accent: #1e1e24;
+    --accent-foreground: #f8fafc;
+
+    --border: #27272a;
+    --ghost-border: rgba(255, 255, 255, 0.08);
+
+    --primary-gradient: linear-gradient(135deg, #818cf8, #c7d2fe);
+    --primary-glow: rgba(99, 102, 241, 0.15);
+    --glass-bg: rgba(10, 10, 10, 0.6);
+  }
+
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    border-color: var(--color-border, currentColor);
+    border-radius: 0px !important; /* Enforce sharp corners */
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* ─── Ghost Borders & Tonal Layering ─── */
+@utility ghost-border {
+  border: 1px solid var(--ghost-border);
+}
+
+@utility surface-low {
+  background-color: var(--surface-low);
+}
+
+@utility surface-high {
+  background-color: var(--surface-high);
+}
+
+/* ─── Glass utilities (Precision Brutalism version) ─── */
+@utility glass {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--ghost-border);
+}
+
+@utility glass-primary {
+  background-color: var(--primary-glow);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--primary-glow);
+}
+
+/* ─── Text gradient utilities ─── */
+@utility text-gradient {
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to bottom right, var(--foreground), var(--muted-foreground));
+}
+
+@utility text-gradient-primary {
+  background-clip: text;
+  color: transparent;
+  background-image: var(--primary-gradient);
+}
+
+/* ─── Corner Marks (L-shapes) ─── */
+.corner-marks {
+  position: relative;
+}
+
+.corner-marks::before,
+.corner-marks::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+}
+
+.corner-marks::before {
+  top: 0;
+  left: 0;
+  border-top: 1px solid var(--primary);
+  border-left: 1px solid var(--primary);
+}
+
+.corner-marks::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px solid var(--primary);
+  border-right: 1px solid var(--primary);
+}
+
+/* ─── Hero background glow ─── */
+.hero-gradient {
+  background: radial-gradient(circle at 50% 50%, var(--primary-glow) 0%, transparent 60%);
+}
+
+.animate-glow {
+  animation: glow 8s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0.7;
+    transform: scale(1.15);
+  }
+}
