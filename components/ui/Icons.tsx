@@ -25,3 +25,40 @@ export const LinkedinIcon = ({ className = "w-5 h-5" }: IconProps) => (
     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
   </svg>
 );
+export const FigmaIcon = ({ className = "w-5 h-5" }: IconProps) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    aria-hidden="true"
+  >
+    <path d="M12 2C9.23858 2 7 4.23858 7 7V7.1C7.58 6.42 8.44 6 9.4 6H12V2ZM12 6H14.6C15.56 6 16.42 6.42 17 7.1V7C17 4.23858 14.7614 2 12 2ZM7 12V11.9C7.58 11.22 8.44 10.8 9.4 10.8H12V12C12 14.7614 9.76142 17 7 17C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7V12ZM12 12V10.8H14.6C15.56 10.8 16.42 11.22 17 11.9V12C17 14.7614 14.7614 17 12 17V12ZM12 17V18.1C12 20.8614 14.2386 23.1 17 23.1C19.7614 23.1 22 20.8614 22 18.1V17H12ZM7 12V12.1C7 14.8614 4.76142 17.1 2 17.1V12H7Z" />
+  </svg>
+);
+
+export const XIcon = ({ className = "w-5 h-5" }: IconProps) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    aria-hidden="true"
+  >
+    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932L18.901 1.153ZM17.61 20.644h2.039L6.486 3.24H4.298L17.61 20.644Z" />
+  </svg>
+);
+
+export const MailIcon = ({ className = "w-5 h-5" }: IconProps) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    aria-hidden="true"
+  >
+    <rect width="20" height="16" x="2" y="4" rx="2" />
+    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+  </svg>
+);

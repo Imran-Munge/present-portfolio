@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { Send, Mail, MapPin, Calendar } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
+import { Send, MapPin, Calendar } from "lucide-react";
+import { GithubIcon, LinkedinIcon, MailIcon } from "@/components/ui/Icons";
 import { motion } from "framer-motion";
 import { personalInfo, socialLinks } from "@/lib/data";
 
@@ -50,7 +50,7 @@ const ContactPage = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-6 p-6 glass-dark rounded-3xl border border-white/5">
               <div className="p-4 bg-mint/10 rounded-2xl text-mint">
-                <Mail className="w-6 h-6" />
+                <MailIcon className="w-6 h-6" />
               </div>
               <div>
                 <div className="text-sm text-muted-foreground uppercase tracking-widest font-bold">

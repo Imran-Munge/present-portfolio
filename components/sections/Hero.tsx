@@ -1,118 +1,217 @@
 "use client";
 
 import React from "react";
-import { motion, Variants } from "framer-motion";
-import { ArrowUpRight, Calendar } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowRight, MapPin, Sparkles } from "lucide-react";
 import { personalInfo } from "@/lib/data";
-import ParticleBackground from "@/components/ui/ParticleBackground";
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.12, duration: 0.6, ease: "easeOut" },
-  }),
-};
+/* ─── animation helpers ─────────────────────────────── */
+const easeOutQuart = [0.25, 0.46, 0.45, 0.94] as const;
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 18 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.55, delay, ease: easeOutQuart },
+});
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background Gradients */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <ParticleBackground />
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/10 blur-[120px] animate-glow" />
-        <div
-          className="absolute bottom-[10%] right-[-5%] w-[35%] h-[35%] rounded-full bg-primary/15 blur-[100px] animate-glow"
-          style={{ animationDelay: "2s" }}
-        />
-      </div>
+    <section className="relative section-padding min-h-[calc(100svh-4rem)] flex items-center pt-32 overflow-hidden">
 
-      <div className="max-w-4xl mx-auto px-6 text-center pt-32">
-        {/* Status Badge */}
-        <motion.div
-          custom={0}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-8"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-          </span>
-          Available for Work
-        </motion.div>
+      {/* ── Background layer ──────────────────────────── */}
+      {/* Subtle dot grid */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.035] dark:opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, currentColor 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
 
-        {/* H1 */}
-        <motion.h1
-          custom={1}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="text-4xl md:text-[60px] font-heading font-bold leading-[1.1] tracking-[-0.02em] text-gradient mb-4"
-        >
-          {personalInfo.name}
-        </motion.h1>
+      {/* Top-left ambient glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-40 -left-40 w-[520px] h-[520px] rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle at 30% 30%, #0A3B28, transparent 70%)",
+          filter: "blur(48px)",
+          opacity: 0.15,
+        }}
+      />
 
-        {/* Subtitle */}
-        <motion.div
-          custom={2}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="mb-5"
-        >
-          <p className="text-xl md:text-2xl font-heading font-semibold text-foreground/80">
-            {personalInfo.title}
-          </p>
-          <p className="text-base md:text-lg text-muted-foreground font-body mt-1">
-            {personalInfo.roles.join(" · ")}
-          </p>
-        </motion.div>
+      {/* Bottom-right ambient glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 right-0 w-[420px] h-[420px] rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle at 70% 70%, #0A3B28, transparent 70%)",
+          filter: "blur(64px)",
+          opacity: 0.1,
+        }}
+      />
 
-        {/* Description */}
-        <motion.p
-          custom={3}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="text-lg md:text-xl text-muted-foreground font-body max-w-xl mx-auto leading-relaxed mb-8"
-        >
-          {personalInfo.description}
-        </motion.p>
+      {/* Thin horizontal rule at top of section */}
+      <motion.div
+        initial={{ scaleX: 0, opacity: 0 }}
+        animate={{ scaleX: 1, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.1, ease: "easeOut" }}
+        style={{ transformOrigin: "left" }}
+        className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"
+      />
 
-        {/* Buttons */}
-        <motion.div
-          custom={4}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="flex flex-wrap justify-center gap-3"
-        >
-          <Link
-            href="/projects"
-            className="px-6 py-3 bg-primary text-primary-foreground rounded-[10px] font-body font-medium text-[15px] tracking-[0.02em] flex items-center gap-2 hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 active:scale-95"
+      {/* ── Main grid ─────────────────────────────────── */}
+      <div className="container-max relative grid lg:grid-cols-[1fr_280px] gap-16 items-center">
+
+        {/* ─── Left content ─────────────────────────── */}
+        <div className="space-y-8">
+
+          {/* Availability badge */}
+          <motion.div {...fadeUp(0)} className="flex items-center gap-2.5">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0A3B28] opacity-60" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0A3B28]" />
+            </span>
+            <span className="text-sm text-muted-foreground tracking-wide">
+              Available for internships &amp; freelance opportunities
+            </span>
+          </motion.div>
+
+          {/* Headline */}
+          <motion.h1
+            {...fadeUp(0.1)}
+            className="text-4xl md:text-5xl lg:text-[54px] font-semibold tracking-tight leading-[1.1] text-foreground"
           >
-            View Projects
-            <ArrowUpRight className="w-4 h-4" />
-          </Link>
-          <Link
-            href="/contact"
-            className="px-6 py-3 border border-primary text-primary rounded-[10px] font-body font-medium text-[15px] tracking-[0.02em] hover:bg-primary hover:text-primary-foreground transition-colors active:scale-95"
+            Building{" "}
+            <span className="relative inline-block">
+              <span className="relative z-10 text-[#0A3B28] dark:text-[#10B981]">AI-Powered</span>
+              {/* underline accent */}
+              <motion.span
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.5, delay: 0.55, ease: "easeOut" }}
+                style={{ transformOrigin: "left" }}
+                className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-[#0A3B28]/30"
+              />
+            </span>{" "}
+            Products and Scalable Web Applications.
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            {...fadeUp(0.2)}
+            className="text-lg text-muted-foreground leading-relaxed max-w-xl"
           >
-            Hire Me
-          </Link>
-          <a
-            href={personalInfo.calLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 text-muted-foreground hover:text-foreground rounded-[10px] font-body font-medium text-[15px] tracking-[0.02em] flex items-center gap-2 transition-colors active:scale-95"
+            Full-stack developer specializing in modern web technologies, SaaS
+            platforms, and intelligent software solutions.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            {...fadeUp(0.28)}
+            className="flex flex-wrap gap-3"
           >
-            <Calendar className="w-4 h-4" />
-            Book a Call
-          </a>
+            <Link
+              href="#projects"
+              className="btn-primary group relative overflow-hidden"
+            >
+              {/* shine sweep on hover */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-in-out bg-gradient-to-r from-transparent via-white/15 to-transparent"
+              />
+              View Projects
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+            </Link>
+
+            <Link href="#contact" className="btn-outline">
+              Contact Me
+            </Link>
+          </motion.div>
+
+          {/* Meta info */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.42 }}
+            className="flex items-center gap-4 text-sm text-muted-foreground"
+          >
+            <span className="flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 shrink-0" />
+              {personalInfo.location}
+            </span>
+            <span className="w-1 h-1 rounded-full bg-border" />
+            <span className="flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 shrink-0 text-[#0A3B28]/60" />
+              Founder of BlackMint Labs
+            </span>
+          </motion.div>
+
+          {/* Subtle stat row */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.52 }}
+            className="flex flex-wrap items-center gap-6 pt-2 border-t border-border/60"
+          >
+            {[
+              { value: "3+", label: "Years building" },
+              { value: "20+", label: "Projects shipped" },
+              { value: "Full-Stack", label: "& AI Engineering" },
+            ].map(({ value, label }) => (
+              <div key={label} className="flex flex-col gap-0.5">
+                <span className="text-sm font-semibold text-foreground">
+                  {value}
+                </span>
+                <span className="text-xs text-muted-foreground">{label}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* ─── Right: portrait ──────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.22, ease: "easeOut" }}
+          className="hidden lg:flex flex-col items-center gap-4"
+        >
+          {/* Outer glow ring */}
+          <div className="relative group">
+            {/* Animated ring */}
+            <div
+              aria-hidden
+              className="absolute -inset-[3px] rounded-[18px] bg-gradient-to-br from-[#0A3B28]/60 via-[#0A3B28]/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            {/* Card */}
+            <div className="relative w-56 h-64 rounded-2xl overflow-hidden border border-border bg-secondary">
+              <Image
+                src="/pfp.jpeg"
+                alt={personalInfo.name}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                priority
+              />
+              {/* Bottom gradient overlay */}
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/40 to-transparent" />
+            </div>
+          </div>
+
+          {/* Name + role pill */}
+          <div className="flex flex-col items-center gap-1">
+            <p className="text-sm font-medium text-foreground">
+              {personalInfo.name}
+            </p>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-border bg-secondary text-[11px] text-muted-foreground tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0A3B28]/70" />
+              Full-Stack · AI Engineer
+            </span>
+          </div>
         </motion.div>
       </div>
     </section>

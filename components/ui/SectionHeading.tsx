@@ -10,26 +10,26 @@ interface SectionHeadingProps {
 
 const SectionHeading = ({ title, subtitle, centered, className }: SectionHeadingProps) => {
   return (
-    <div className={cn(
-      "flex flex-col gap-4",
-      centered ? "items-center text-center" : "items-start",
-      className
-    )}>
-      <h2 className="text-3xl md:text-5xl font-heading font-bold tracking-tight text-gradient">
+    <div
+      className={cn(
+        "flex flex-col gap-3",
+        centered ? "items-center text-center" : "items-start",
+        className
+      )}
+    >
+      <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
         {title}
       </h2>
       {subtitle && (
-        <p className={cn(
-          "text-muted-foreground text-lg max-w-2xl leading-relaxed font-body",
-          centered ? "text-center" : "text-left"
-        )}>
+        <p
+          className={cn(
+            "text-muted-foreground text-base leading-relaxed max-w-xl",
+            centered ? "text-center" : "text-left"
+          )}
+        >
           {subtitle}
         </p>
       )}
-      <div className={cn(
-        "h-1.5 w-12 bg-primary rounded-full mt-2",
-        centered ? "mx-auto" : ""
-      )} />
     </div>
   );
 };

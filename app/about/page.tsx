@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Learn about Imran Munge — AI Engineer, Full Stack Developer, and Founder of Blackmint Labs. Building intelligent products and scalable web applications in India.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 const skills = [

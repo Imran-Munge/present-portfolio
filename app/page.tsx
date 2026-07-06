@@ -1,57 +1,78 @@
 import Hero from "@/components/sections/Hero";
-import TrustStrip from "@/components/sections/TrustStrip";
 import About from "@/components/sections/About";
+import Skills from "@/components/sections/Skills";
+import Services from "@/components/sections/Services";
 import Experience from "@/components/sections/Experience";
+import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
-import SectionHeading from "@/components/ui/SectionHeading";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projects } from "@/lib/projects";
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Home() {
-  const featuredProjects = projects.slice(0, 3);
-
   return (
-    <div className="flex flex-col gap-0">
+    <div className="flex flex-col">
+      {/* 1 · Hero */}
       <Hero />
-      <TrustStrip />
-      <About />
 
-      {/* Featured Projects Section */}
-      <section className="py-24 px-6 max-w-7xl mx-auto w-full">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
-          <SectionHeading
-            title="Projects"
-            subtitle="A selection of things I've built — from AI systems to full-stack platforms."
-          />
-          <Link
-            href="/projects"
-            className="group flex items-center gap-2 text-primary font-medium mb-4"
-          >
-            View all projects
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
+      {/* 2 · Projects */}
+      <section id="projects" className="section-padding border-t border-border">
+        <div className="container-max space-y-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="space-y-2">
+              <p className="section-label">Projects</p>
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+                Selected work
+              </h2>
+              <p className="text-muted-foreground text-base max-w-lg">
+                Web and e-commerce builds for real estate, food, retail, agencies, and healthcare.
+              </p>
+            </div>
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors shrink-0 mb-1"
+            >
+              View all
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProjects.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              description={project.description}
-              tags={project.stack}
-              github={project.github || undefined}
-              live={project.live || undefined}
-              year={project.year}
-              role={project.role}
-              index={index}
-            />
-          ))}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                id={project.id}
+                title={project.title}
+                description={project.description}
+                category={project.category}
+                tags={project.stack}
+                image={project.image}
+                live={project.live}
+                year={project.year}
+                index={index}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
+      {/* 3 · Tech Stack */}
+      <Skills />
+
+      {/* 4 · Services */}
+      <Services />
+
+      {/* 5 · About */}
+      <About />
+
+      {/* 6 · Experience */}
       <Experience />
+
+      {/* 7 · Testimonials */}
+      <Testimonials />
+
+      {/* 8 · Contact */}
       <Contact />
     </div>
   );

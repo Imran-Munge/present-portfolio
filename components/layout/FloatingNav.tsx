@@ -4,16 +4,24 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, Briefcase, Mail, BookOpen } from "lucide-react";
+import { 
+  Home, 
+  Briefcase, 
+  LayoutGrid, 
+  User, 
+  PenTool, 
+  Mail
+} from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Home", href: "/", icon: Home },
-  { name: "About", href: "/about", icon: User },
-  { name: "Projects", href: "/projects", icon: Briefcase },
-  { name: "Blog", href: "/blog", icon: BookOpen },
-  { name: "Contact", href: "/contact", icon: Mail },
+  { name: "Work", href: "/#work", icon: Briefcase },
+  { name: "Projects", href: "/projects", icon: LayoutGrid },
+  { name: "About", href: "/#about", icon: User },
+  { name: "Blog", href: "/blog", icon: PenTool },
+  { name: "Contact", href: "/#contact", icon: Mail },
 ];
 
 const FloatingNav = () => {
@@ -33,23 +41,23 @@ const FloatingNav = () => {
       }
     };
 
-    window.addEventListener("scroll", controlNavbar);
+    window.addEventListener("scroll", controlNavbar, { passive: true });
     return () => window.removeEventListener("scroll", controlNavbar);
   }, [lastScrollY]);
 
   return (
-    <div className="fixed bottom-8 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+    <div className="fixed bottom-10 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
       <AnimatePresence>
         {isVisible && (
           <motion.nav
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 100, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="pointer-events-auto flex items-center gap-1 glass px-4 py-3 rounded-full shadow-2xl backdrop-blur-3xl"
+            initial={{ y: 100, opacity: 0, scale: 0.8 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            exit={{ y: 100, opacity: 0, scale: 0.8 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="pointer-events-auto flex items-center gap-1 glass-card px-4 py-2 rounded-full shadow-[0_20px_50px_-15px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.7)]"
           >
             {navItems.map((item) => {
-              const isActive = pathname === item.href;
+              const isActive = pathname === item.href || (pathname === "/" && item.href.startsWith("/#"));
               const Icon = item.icon;
 
               return (
@@ -57,32 +65,43 @@ const FloatingNav = () => {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "relative flex items-center justify-center p-2.5 rounded-full transition-all duration-300 group",
+                    "relative flex items-center justify-center p-3 rounded-full transition-all duration-500 group",
                     isActive 
                       ? "text-primary" 
-                      : "text-muted-foreground hover:text-foreground"
+                      : "text-foreground/40 hover:text-foreground"
                   )}
                 >
-                  <Icon className="w-5 h-5 relative z-10" />
+                  <Icon className="w-5 h-5 relative z-10 transition-transform group-hover:scale-110" />
                   <span className="sr-only">{item.name}</span>
                   
                   {isActive && (
-                    <motion.div
-                      layoutId="active-pill"
-                      className="absolute inset-0 bg-primary/10 rounded-full"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                    />
+                    <>
+                      <motion.div
+                        layoutId="active-pill"
+                        className="absolute inset-0 bg-primary/10 dark:bg-primary/20 rounded-full"
+                        transition={{ type: "spring", bounce: 0.25, duration: 0.8 }}
+                      />
+                      <motion.div
+                        layoutId="active-glow"
+                        className="absolute inset-0 bg-primary/5 blur-md rounded-full -z-10"
+                        transition={{ type: "spring", bounce: 0.25, duration: 0.8 }}
+                      />
+                    </>
                   )}
                   
                   {/* Tooltip */}
-                  <span className="absolute bottom-full mb-4 px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                    {item.name}
-                  </span>
+                  <div className="absolute bottom-full mb-6 px-4 py-2 glass rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 pointer-events-none shadow-xl border border-white/10">
+                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase whitespace-nowrap">
+                      {item.name}
+                    </span>
+                  </div>
                 </Link>
               );
             })}
-            <div className="w-[1px] h-6 bg-border mx-1" />
-            <ThemeToggle />
+            <div className="w-px h-6 bg-foreground/10 mx-2" />
+            <div className="p-1">
+              <ThemeToggle />
+            </div>
           </motion.nav>
         )}
       </AnimatePresence>
