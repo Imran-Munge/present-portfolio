@@ -52,7 +52,7 @@ const Contact = () => {
               className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors group"
             >
               <MailIcon className="w-4 h-4 shrink-0" />
-              hello@blackmintlabs.com
+              blackmintlabs@gmail.com
               <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
             <a

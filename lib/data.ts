@@ -7,7 +7,7 @@ export const personalInfo = {
   roles: ["AI Engineer", "Full Stack Developer", "Tech Entrepreneur"],
   description:
     "I build AI-powered products, scalable web applications, and automation systems that solve real-world problems.",
-  siteUrl: "https://imranmunge.com", // Replace with actual domain if known
+  siteUrl: "https://imran.blackmintlabs.com", // Replace with actual domain if known
   calLink: "https://cal.com/imranmunge/15min",
   location: "Mumbai, India",
 } as const;
@@ -27,4 +27,14 @@ export const seoKeywords = [
   "Founder & CEO Blackmint Labs",
   "Next.js Developer Mumbai",
   "AI Automation Expert",
+  "Web Application Developer India",
+  "Tech Entrepreneur Portfolio",
+  "AI Product Builder",
+  "Imran Munge Projects",
+  "Imran Munge Freelance Work",
+  "Imran Munge Web Development",
+  "Imran Munge E-Commerce Solutions",
+  "Imran Munge AI Solutions",
+  "Imran Munge Software Engineer",
+
 ] as const;

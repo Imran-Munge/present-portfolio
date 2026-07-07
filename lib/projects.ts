@@ -35,7 +35,7 @@ export const projects: Project[] = [
     live: "https://nexushomes.in",
     year: "2024",
     image: "/projects/nexus-homes/nexus.png",
-    video: "/projects/nexus-homes/demo.webm",
+    video: "/projects/nexus-homes/demo.mp4",
     videoMp4: "/projects/nexus-homes/demo.mp4",
   },
   {
@@ -46,8 +46,8 @@ export const projects: Project[] = [
       "A modern commerce experience for a specialty food brand that needed richer storytelling around products and collections.",
     stack: ["Next.js", "E-Commerce", "Tailwind CSS", "Stripe", "Storytelling"],
     year: "2024",
-    image: "/projects/spice-market/spice.png",
-    video: "/projects/spice-market/demo.webm",
+    image: "/projects/spice-market/spices.png",
+    video: "/projects/spice-market/demo.mp4",
     videoMp4: "/projects/spice-market/demo.mp4",
   },
   {
@@ -59,7 +59,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Restaurant", "Brand"],
     year: "2024",
     image: "/projects/waffle-forever/waffle.png",
-    video: "/projects/waffle-forever/demo.webm",
+    video: "/projects/waffle-forever/demo.mp4",
     videoMp4: "/projects/waffle-forever/demo.mp4",
   },
   {
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "E-Commerce", "Tailwind CSS", "Product Discovery"],
     year: "2024",
     image: "/projects/melody-store/melody.png",
-    video: "/projects/melody-store/demo.webm",
+    video: "/projects/melody-store/demo.mp4",
     videoMp4: "/projects/melody-store/demo.mp4",
   },
   {
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     live: "https://blackmintlabs.com",
     year: "2025",
     image: "/projects/blackmint-labs/labs.png",
-    video: "/projects/blackmint-labs/demo.webm",
+    video: "/projects/blackmint-labs/demo.mp4",
     videoMp4: "/projects/blackmint-labs/demo.mp4",
   },
   {
@@ -93,15 +93,21 @@ export const projects: Project[] = [
     category: "Web",
     description:
       "A healthcare and diagnostic platform focused on accessibility and patient trust.",
-    stack: ["Next.js", "TypeScript", "Healthcare", "Accessibility", "Tailwind CSS"],
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Healthcare",
+      "Accessibility",
+      "Tailwind CSS",
+    ],
     year: "2025",
     image: "/projects/q-diagnostic/q.png",
-    video: "/projects/q-diagnostic/q.png",
+    video: "/projects/q-diagnostic/demo.mp4",
     videoMp4: "/projects/q-diagnostic/demo.mp4",
   },
 
   {
-    id: "the bakelan bakery",
+    id: "the-bakelan-bakery",
     title: "The Bakelan Bakery",
     category: "Web",
     description:
@@ -109,23 +115,33 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Bakery", "Brand"],
     year: "2024",
     image: "/projects/the-bakelan-bakery/bakeland.jpeg",
-    video: "/projects/the-bakelan-bakery/demo.webm",
+    video: "/projects/the-bakelan-bakery/demo.mp4",
     videoMp4: "/projects/the-bakelan-bakery/demo.mp4",
   },
   {
-    id: "the bakelan bakery",
-    title: "The Bakelan Bakery",
+    id: "the-cake",
+    title: "The Cake",
     category: "Web",
     description:
-      "A bakery website designed to showcase menu offerings, brand identity, and customer engagement.",
+      "A cake website designed to showcase menu offerings, brand identity, and customer engagement.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Bakery", "Brand"],
     year: "2024",
-    image: "/projects/the-bakelan-bakery/bakeland.jpeg",
-    video: "/projects/the-bakelan-bakery/demo.webm",
-    videoMp4: "/projects/the-bakelan-bakery/demo.mp4",
+    image: "/projects/cake/cakee.jpeg",
+    video: "/projects/cake/demo.mp4",
+    videoMp4: "/projects/cake/demo.mp4",
   },
-
-
+  {
+    id: "the-jewellery",
+    title: "The Jewellery",
+    category: "Web",
+    description:
+      "A jewellery website designed to showcase menu offerings, brand identity, and customer engagement.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Bakery", "Brand"],
+    year: "2024",
+    image: "/projects/jwellery/jwellery.jpeg",
+    video: "/projects/jwellery/demo.mp4",
+    videoMp4: "/projects/jwellery/demo.mp4",
+  },
 ];
 
 export function getProjectById(id: string): Project | undefined {

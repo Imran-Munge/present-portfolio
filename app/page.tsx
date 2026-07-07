@@ -21,9 +21,9 @@ export default function Home() {
         <div className="container-max space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2">
-              <p className="section-label">Projects</p>
+              <p className="section-label">client Projects</p>
               <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
-                Selected work
+                Selected freelance work
               </h2>
               <p className="text-muted-foreground text-base max-w-lg">
                 Web and e-commerce builds for real estate, food, retail, agencies, and healthcare.

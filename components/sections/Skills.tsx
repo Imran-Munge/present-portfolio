@@ -2,277 +2,150 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import {
+  SiC,
+  SiCplusplus,
+  SiCss,
+  SiDocker,
+  SiExpress,
+  SiFigma,
+  SiFirebase,
+  SiFramer,
+  SiGit,
+  SiGithub,
+  SiHtml5,
+  SiJavascript,
+  SiKubernetes,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiNumpy,
+  SiOpencv,
+  SiPandas,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiRedis,
+  SiScikitlearn,
+  SiShadcnui,
+  SiSupabase,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
+import { FaJava } from "react-icons/fa6";
+import type { IconType } from "react-icons";
 
-/* ─── Brand-color badge system ───────────────────────────────────── */
-/* ─── SVG Icons ──────────────────────────────────────────────────── */
-const PythonIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969c0 6.18 3.403 5.963 3.403 5.963h2.031v-2.867s-.109-3.402 3.35-3.402h5.769s3.24.052 3.24-3.13V3.327S18.28 0 11.914 0zM8.708 1.927a1.073 1.073 0 1 1 0 2.147 1.073 1.073 0 0 1 0-2.147z" />
-    <path d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752H12v-.826h8.1S24 18.211 24 12.031c0-6.18-3.402-5.963-3.402-5.963h-2.031v2.867s.108 3.402-3.35 3.402H9.448S6.21 12.285 6.21 15.467V20.67S5.72 24 12.086 24zm3.206-1.927a1.073 1.073 0 1 1 0-2.147 1.073 1.073 0 0 1 0 2.147z" />
-  </svg>
-);
+type TechItem = {
+  name: string;
+  icon: IconType;
+  brand: string;
+  surface: string;
+};
 
-const NextjsIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 0 1-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 0 0-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.919-2.592-2.404-3.558a338.739 338.739 0 0 0-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 0 1-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 0 1-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 0 1 .174-.143c.096-.047.134-.051.54-.051.478 0 .558.018.682.154.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 0 0 4.735 7.17l1.9 2.879.096-.063a12.317 12.317 0 0 0 2.466-2.163 11.944 11.944 0 0 0 2.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747C23.78 5.575 20.571 1.79 16.222.394a12.876 12.876 0 0 0-2.535-.525c-.2-.02-1.688-.04-2.115-.041z" />
-  </svg>
-);
-
-const ReactIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38a2.167 2.167 0 0 0-1.096-.278zm-.oa 3.99c.237.814.406 1.794.514 2.859-1.006-.57-2.087-1.065-3.228-1.48-.5-1.01-1.05-1.95-1.634-2.772 1.544.95 2.99 1.26 4.348.393zm-6.25.717c.413.62.816 1.29 1.198 2.01-.782-.13-1.58-.19-2.388-.19-.82 0-1.63.065-2.42.198.379-.71.781-1.378 1.196-1.996.4-.057.807-.085 1.228-.085.4 0 .79.028 1.186.063zm-5.95-.717c1.36.867 2.806.557 4.35-.393-.583.822-1.132 1.762-1.635 2.772-1.14.415-2.22.91-3.228 1.48.107-1.065.277-2.045.513-2.86zM5.14 12.004c0-.432.015-.86.044-1.282.55-.357 1.144-.684 1.77-.978.28.464.56.938.85 1.407a.001.001 0 0 0 0 .002c-.29.469-.57.943-.85 1.407-.626-.294-1.22-.621-1.77-.978a17.59 17.59 0 0 1-.044-1.278v-.28zm6.854 6.47c-.4-.062-.803-.14-1.2-.236a16.39 16.39 0 0 1-1.2-1.97c.38-.13.782-.243 1.197-.333.414.69.84 1.356 1.275 1.985l-.072.554zm1.998.263a.003.003 0 0 0-.002 0c-.41-.62-.813-1.28-1.195-1.995.78.13 1.58.19 2.388.19.82 0 1.628-.065 2.42-.198-.38.71-.782 1.378-1.197 1.995a14.64 14.64 0 0 1-2.414.008zm4.334-.263a14.59 14.59 0 0 0-1.2-2.035c.414.09.815.203 1.196.333-.382.713-.777 1.371-1.199 1.97l.078-.054.001-.001c.383-.07.76-.14 1.124-.213zm1.476-3.47c.626.294 1.22.621 1.77.978.03.42.044.848.044 1.278 0 .432-.015.86-.044 1.282-.55.357-1.144.684-1.77.978-.28-.464-.56-.938-.85-1.407.29-.469.57-.943.85-1.407a.001.001 0 0 0 0-.002c.3-.47.579-.943.858-1.407.001-.003.001-.003 0 0-.278-.466-.558-.94-.858-1.407.625-.293 1.22-.62 1.77-.977zm-1.476-3.47l-.001-.001c-.364-.073-.74-.143-1.123-.213-.383-.592-.777-1.25-1.196-1.97.414-.13.815-.243 1.196-.333.422.6.817 1.257 1.199 1.97.041.08-.076.547-.075.547zm-4.334-.262a.003.003 0 0 0 .002 0c.41.62.813 1.28 1.195 1.995-.78-.13-1.58-.19-2.388-.19-.82 0-1.628.065-2.42.198.38-.71.782-1.378 1.197-1.996a14.64 14.64 0 0 1 2.414-.007zm-3.336-.001c-.414.09-.815.203-1.196.333.382-.713.777-1.371 1.199-1.97.38.698.782 1.358 1.2 1.97l-.072.046c-.383.07-.76.14-1.131.221z" />
-  </svg>
-);
-
-const TypeScriptIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z" />
-  </svg>
-);
-
-const NodeIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M11.998 24a3.016 3.016 0 0 1-1.506-.401l-4.79-2.835c-.716-.401-.366-.543-.13-.626.955-.332 1.147-.407 2.166-.983.107-.061.247-.038.357.026l3.681 2.183c.133.071.32.071.44 0l14.337-8.276c.133-.077.218-.228.218-.389V6.31c0-.166-.085-.313-.218-.394L12.228 1.644c-.133-.077-.314-.077-.44 0L.449 9.921C.312 10 .23 10.15.23 10.312v16.546c0 .161.085.311.218.394l3.916 2.262c2.126 1.062 3.426-.189 3.426-1.446V11.239c0-.229.183-.407.408-.407h1.78c.22 0 .407.178.407.407v16.829c0 2.822-1.542 4.44-4.226 4.44z" />
-  </svg>
-);
-
-const ExpressIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M24 18.588a1.529 1.529 0 0 1-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 0 1-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 0 1 1.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 0 1 1.788-.668L21.708 7.9l-2.522 3.283a.666.666 0 0 0 0 .994l4.804 6.412zM.002 11.576l.42-2.075c1.154-4.103 5.858-5.81 9.094-3.27 1.895 1.489 2.368 3.597 2.275 5.973H1.116C.943 16.447 4.005 19.009 7.92 17.7a4.078 4.078 0 0 0 2.582-2.876c.207-.666.548-.78 1.174-.588a5.417 5.417 0 0 1-2.589 3.957 6.272 6.272 0 0 1-7.306-.933 6.575 6.575 0 0 1-1.64-3.858c-.022-.235-.064-.455-.083-.681zm1.12-.269H9.16c-.085-3.nacimiento-1.87-5.059-3.903-5.039a4.181 4.181 0 0 0-4.135 5.04z" />
-  </svg>
-);
-
-const DockerIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 0 0 .186-.186V3.574a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 0 0 .186-.186V6.29a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 0 0 .184-.186V6.29a.185.185 0 0 0-.185-.185H8.1a.185.185 0 0 0-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 0 0 .185-.186V6.29a.185.185 0 0 0-.185-.185H5.136a.186.186 0 0 0-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 0 0 .185-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.186.186 0 0 0-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.186.186 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.185.186v1.887c0 .102.083.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 0 0-.75.748 11.376 11.376 0 0 0 .692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 0 0 3.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288z" />
-  </svg>
-);
-
-const MongoIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0 1 11.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 0 0 3.639-8.464c.01-.814-.052-1.578-.197-2.218z" />
-  </svg>
-);
-
-const TailwindIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
-  </svg>
-);
-
-const FigmaIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019h-3.117zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h3.117V1.471zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h3.117v-6.038zm4.589 7.51c0 2.476-2.014 4.49-4.49 4.49s-4.49-2.014-4.49-4.49 2.014-4.49 4.49-4.49 4.49 2.014 4.49 4.49zm-7.51 0c0 1.665 1.355 3.019 3.019 3.019s3.019-1.354 3.019-3.019-1.354-3.019-3.019-3.019-3.019 1.354-3.019 3.019zm10.527-4.49c0-2.476 2.014-4.49 4.49-4.49s4.49 2.014 4.49 4.49-2.014 4.49-4.49 4.49-4.49-2.014-4.49-4.49zm1.471 0c0 1.665 1.355 3.019 3.019 3.019s3.019-1.354 3.019-3.019-1.354-3.019-3.019-3.019-3.019 1.354-3.019 3.019z" />
-  </svg>
-);
-
-const GitIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M23.546 10.93L13.067.452a1.55 1.55 0 0 0-2.188 0L8.708 2.627l2.76 2.76a1.838 1.838 0 0 1 2.327 2.341l2.658 2.66a1.838 1.838 0 0 1 1.9 3.039 1.837 1.837 0 0 1-2.6 0 1.841 1.841 0 0 1-.404-2.018L12.86 9.111v6.615a1.84 1.84 0 0 1 .49 3.602 1.838 1.838 0 0 1-2.324-1.755 1.84 1.84 0 0 1 1.012-1.633v-6.68a1.838 1.838 0 0 1-.996-2.411L8.304 4.163l-7.857 7.857a1.55 1.55 0 0 0 0 2.188l10.48 10.478a1.55 1.55 0 0 0 2.188 0l10.43-10.428a1.55 1.55 0 0 0 0-2.188z" />
-  </svg>
-);
-
-const GitHubIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-  </svg>
-);
-
-const RedisIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M10.9 7.8L8.6 9l2.3 1.1 2.3-1.1zm2.6 1.5l-2.6 1.3L8.3 9.3v2.8l2.6 1.3 2.6-1.3zM24 8.1s-3.5 1.8-5.3 2.7c-.8.4-1.4.8-1.9 1.3-.2.1-.3.3-.5.4v5c0 .1 0 .1.1.2l4.7-2.3V9.8l2.9-1.7zm-9 6.3l2.6-1.3V16l-2.6 1.3zm0-2.6l2.6-1.3v2.6l-2.6 1.3zM0 8.1v6.3l4.7 2.3c.1 0 .1-.1.1-.2v-5c-.2-.1-.3-.3-.5-.4-.5-.5-1.1-.9-1.9-1.3C.7 8.8.1 8.4 0 8.1zm9.5 9.5L7 16.3v2.6l2.5 1.2zm0-2.6L7 13.7v2.6l2.5 1.2zm-5 0L7 11.7v2.6l-2.5 1.2zm2.5 5.2L9.5 19v-2.6L7 17.7zm5-2.6V20l2.5-1.2v-2.6zM12 20l2.5-1.2v-2.6L12 17.4zm-2.5-8.8L7 12.5v2.6l2.5-1.2zM7 10l2.5 1.2 2.5-1.2-2.5-1.2zm2.5 4.9l2.5-1.2V11l-2.5 1.2zm5 0l2.5-1.2V11L14.5 12z" />
-  </svg>
-);
-
-const KubernetesIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M10.204 14.35l.007.01-.999 2.413a5.171 5.171 0 0 1-2.075-2.597l2.578-.437.004.005a.44.44 0 0 1 .485.606zm-.508-2.074a.44.44 0 0 1 .173-.756l.002-.011 2.394-1.011a5.171 5.171 0 0 1 .182 3.376l-2.359-1.565.002-.005a.44.44 0 0 1-.394-.028zm2.874-1.755a.44.44 0 0 1 .547-.547l.007-.004 1.741 1.517a5.207 5.207 0 0 1-.917 1.246 5.2 5.2 0 0 1-1.166.892l-.25-2.19.009-.002a.44.44 0 0 1 .029-.912zm-1.8 3.01l2.318 1.538a5.21 5.21 0 0 1-2.86.735 5.2 5.2 0 0 1-.75-.055l.235-2.253a.44.44 0 0 1 1.057.035zm5.064-2.36a.44.44 0 0 1-.485-.606l-.007-.01.999-2.413a5.171 5.171 0 0 1 2.075 2.597l-2.578.437-.004-.005zm.508 2.074a.44.44 0 0 1-.173.756l-.002.011-2.394 1.011a5.171 5.171 0 0 1-.182-3.376l2.359 1.565-.002.005a.44.44 0 0 1 .394.028zm-2.874 1.755a.44.44 0 0 1-.547.547l-.007.004-1.741-1.517a5.207 5.207 0 0 1 .917-1.246 5.2 5.2 0 0 1 1.166-.892l.25 2.19-.009.002a.44.44 0 0 1-.029.912zM12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm-.005 20.386a8.387 8.387 0 1 1 .01-16.774 8.387 8.387 0 0 1-.01 16.774z" />
-  </svg>
-);
-
-const JavaIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149zm-.722-3.235s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218zm4.915-4.502c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573zm7.282 15.325s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.698 14.977-1.82zm-8.466-6.259s-4.355 1.037-1.543 1.412c1.188.159 3.554.123 5.762-.062 1.804-.152 3.614-.477 3.614-.477s-.636.272-1.098.587c-4.429 1.165-12.981.623-10.522-.568 2.082-1.006 3.787-.892 3.787-.892zm7.827 4.354c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562 0-.001.07-.062.09-.118zm-7.892-11.5c-1.63.456-7.562 1.457-4.09.81-1.317.154-2.698.454-2.698.454s.712-.288 1.445-.459c2.773-.675 7.578-.815 10.342-.194 0 0-1.402.437-4.999 3.389z" />
-  </svg>
-);
-
-const SupabaseIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C.111 12.876.692 14.067 1.686 14.067h8.122l.012 8.889c.015.986 1.26 1.409 1.874.637l9.262-11.652c.653-.826.072-2.017-.922-2.017h-8.12l-.015-8.888z" />
-  </svg>
-);
-
-const PostgresIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M23.5609 13.5909c-.3099-.1816-1.0437-.3004-2.0938-.1084-.1481.027-.3054.061-.4725.1028l.0046-.0028c.2327-1.1988.2702-2.1949-.1072-2.7527-.7174-1.0597-2.2944-.8777-4.3539.3804a9.7456 9.7456 0 0 0-1.0033-2.3175c.8153-1.1476 1.5236-2.3543 1.5236-3.5558 0-1.8568-1.4386-3.4066-3.4066-3.4066-1.8568 0-3.4066 1.5498-3.4066 3.4066 0 1.2015.7083 2.4082 1.5236 3.5558a9.7456 9.7456 0 0 0-1.0033 2.3175c-2.0595-1.2581-3.6365-1.4401-4.3539-.3804-.3774.5578-.3399 1.5539-.1072 2.7527a12.1984 12.1984 0 0 0-.4725-.1028c-1.0501-.1920-1.7839-.0732-2.0938.1084-.2421.1419-.2655.3584-.1518.6218.1681.3841.5921.7694 1.1787 1.0742.7491.3844 1.7041.5699 2.6617.5699.2969 0 .5931-.0195.8842-.0583a9.7773 9.7773 0 0 0 1.6459 2.3785c-.6049.6556-1.0437 1.4142-1.0437 2.2244 0 1.3697 1.1091 2.4788 2.4788 2.4788s2.4788-1.1091 2.4788-2.4788v-.0002c0-.1124-.0098-.2222-.0271-.3297 1.0527-.2195 2.1264-.2195 3.1791 0-.0173.1075-.0271.2173-.0271.3297v.0002c0 1.3697 1.1091 2.4788 2.4788 2.4788 1.3697 0 2.4788-1.1091 2.4788-2.4788 0-.8102-.4388-1.5688-1.0437-2.2244a9.7773 9.7773 0 0 0 1.6459-2.3785c.2911.0388.5873.0583.8842.0583.9576 0 1.9126-.1855 2.6617-.5699.5866-.3048 1.0106-.6901 1.1787-1.0742.1137-.2634.0903-.4799-.1518-.6218z" />
-  </svg>
-);
-
-const FirebaseIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M3.89 15.672L6.255.461A.542.542 0 0 1 7.27.288l2.543 4.771zm16.794 3.692l-2.25-14a.54.54 0 0 0-.919-.295L3.316 19.365l7.856 4.427a1.621 1.621 0 0 0 1.588 0zM14.3 7.147l-1.82-3.482a.542.542 0 0 0-.96 0L3.53 17.984z" />
-  </svg>
-);
-
-const HtmlIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" />
-  </svg>
-);
-
-const CssIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" />
-  </svg>
-);
-
-const FramerIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M4 0h16v8h-8zm0 8h8l8 8H4zm0 8h8v8z" />
-  </svg>
-);
-
-const CPPIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M22.394 6c-.167-.29-.38-.543-.64-.69L12.97.29c-.51-.296-1.409-.296-1.94 0L2.255 5.31c-.526.307-.888 1.005-.888 1.605v10.08c0 .3.127.637.318.903.17.24.41.44.64.555l8.817 5.014c.51.3 1.41.3 1.938 0L22.393 18.4c.53-.308.89-1.006.89-1.595V7.106a1.89 1.89 0 0 0-.89-1.106zm-9.864 11.31c-3.131 0-5.671-2.546-5.671-5.68 0-3.134 2.54-5.68 5.67-5.68 1.828 0 3.451.913 4.393 2.315l-2.134 1.234a3.197 3.197 0 0 0-2.26-.928 3.197 3.197 0 0 0-3.198 3.058 3.197 3.197 0 0 0 3.197 3.336c.87 0 1.67-.357 2.25-.929l2.134 1.234a5.649 5.649 0 0 1-4.38 2.04zm7.947-4.836h-.78v.78h-.78v-.78h-.78v-.782h.78v-.78h.78v.78h.78zm2.557 0h-.78v.78h-.783v-.78h-.78v-.782h.78v-.78h.783v.78h.78z" />
-  </svg>
-);
-
-const ShadcnIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M22.219 11.784 11.784 22.219c-.407.407-.407 1.068 0 1.476.407.407 1.068.407 1.476 0l10.435-10.435c.407-.408.407-1.069 0-1.476-.408-.407-1.069-.407-1.476 0zM20.132.305.305 20.132c-.407.407-.407 1.068 0 1.476.408.407 1.069.407 1.476 0L21.608 1.781c.407-.407.407-1.068 0-1.476-.408-.407-1.069-.407-1.476 0z" />
-  </svg>
-);
-
-const PandasIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" aria-hidden fill="currentColor">
-    <path d="M16.416 0H7.584C3.398 0 0 3.398 0 7.584v8.832C0 20.602 3.398 24 7.584 24h8.832C20.602 24 24 20.602 24 16.416V7.584C24 3.398 20.602 0 16.416 0zM9.36 17.279a.64.64 0 0 1-.64.64H6.24a.64.64 0 0 1-.64-.64V6.72a.64.64 0 0 1 .64-.64H8.72a.64.64 0 0 1 .64.64v10.559zm1.92-3.84a.64.64 0 0 1-.64-.64V11.04a.64.64 0 0 1 .64-.64h2.48a.64.64 0 0 1 .64.64v1.76a.64.64 0 0 1-.64.64h-2.48zm5.36 3.84a.64.64 0 0 1-.64.64h-2.48a.64.64 0 0 1-.64-.64V6.72a.64.64 0 0 1 .64-.64H16a.64.64 0 0 1 .64.64v10.559z" />
-  </svg>
-);
-
-/* ─── Category data ───────────────────────────────────────────────── */
-interface Category {
+type Category = {
   label: string;
-  items: { name: string; icon: React.ReactNode; bg: string; fg: string }[];
-}
+  items: TechItem[];
+};
 
 const categories: Category[] = [
   {
     label: "Languages",
     items: [
-      { name: "Python", icon: <PythonIcon />, bg: "#3776AB", fg: "#fff" },
-      { name: "TypeScript", icon: <TypeScriptIcon />, bg: "#3178C6", fg: "#fff" },
-      { name: "Java", icon: <JavaIcon />, bg: "#E84135", fg: "#fff" },
-      { name: "C++", icon: <CPPIcon />, bg: "#00599C", fg: "#fff" },
-      { name: "C", icon: <span className="font-extrabold text-sm leading-none">C</span>, bg: "#A8B9CC", fg: "#000" },
-      { name: "HTML5", icon: <HtmlIcon />, bg: "#E34F26", fg: "#fff" },
-      { name: "CSS3", icon: <CssIcon />, bg: "#1572B6", fg: "#fff" },
+      { name: "Python", icon: SiPython, brand: "#3776AB", surface: "#F7C945" },
+      { name: "TypeScript", icon: SiTypescript, brand: "#3178C6", surface: "#0F3E68" },
+      { name: "JavaScript", icon: SiJavascript, brand: "#F7DF1E", surface: "#2A2605" },
+      { name: "Java", icon: FaJava, brand: "#E11F21", surface: "#3C1010" },
+      { name: "C++", icon: SiCplusplus, brand: "#00599C", surface: "#062A46" },
+      { name: "C", icon: SiC, brand: "#A8B9CC", surface: "#263445" },
+      { name: "HTML5", icon: SiHtml5, brand: "#E34F26", surface: "#3F160C" },
+      { name: "CSS3", icon: SiCss, brand: "#1572B6", surface: "#082B48" },
     ],
   },
   {
     label: "Frontend",
     items: [
-      { name: "React", icon: <ReactIcon />, bg: "#20232A", fg: "#61DAFB" },
-      { name: "Next.js", icon: <NextjsIcon />, bg: "#000", fg: "#fff" },
-      { name: "Tailwind CSS", icon: <TailwindIcon />, bg: "#0F172A", fg: "#06B6D4" },
-      { name: "Framer Motion", icon: <FramerIcon />, bg: "#0D1117", fg: "#BB86FC" },
-      { name: "shadcn/ui", icon: <ShadcnIcon />, bg: "#18181B", fg: "#fff" },
-      { name: "Figma", icon: <FigmaIcon />, bg: "#1E1E1E", fg: "#F24E1E" },
+      { name: "React", icon: SiReact, brand: "#61DAFB", surface: "#102C35" },
+      { name: "Next.js", icon: SiNextdotjs, brand: "#FFFFFF", surface: "#111111" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, brand: "#06B6D4", surface: "#073842" },
+      { name: "Framer Motion", icon: SiFramer, brand: "#BB86FC", surface: "#25143D" },
+      { name: "shadcn/ui", icon: SiShadcnui, brand: "#FFFFFF", surface: "#18181B" },
+      { name: "Figma", icon: SiFigma, brand: "#F24E1E", surface: "#241412" },
     ],
   },
   {
     label: "Backend",
     items: [
-      { name: "Node.js", icon: <NodeIcon />, bg: "#339933", fg: "#fff" },
-      { name: "Express.js", icon: <ExpressIcon />, bg: "#303030", fg: "#fff" },
+      { name: "Node.js", icon: SiNodedotjs, brand: "#5FA04E", surface: "#142A16" },
+      { name: "Express.js", icon: SiExpress, brand: "#FFFFFF", surface: "#1F1F1F" },
     ],
   },
   {
     label: "Databases",
     items: [
-      { name: "MongoDB", icon: <MongoIcon />, bg: "#13AA52", fg: "#fff" },
-      { name: "PostgreSQL", icon: <PostgresIcon />, bg: "#336791", fg: "#fff" },
-      { name: "Supabase", icon: <SupabaseIcon />, bg: "#1C1C1C", fg: "#3ECF8E" },
-      { name: "Firestore", icon: <FirebaseIcon />, bg: "#FFCA28", fg: "#1A1A1A" },
-      { name: "Redis", icon: <RedisIcon />, bg: "#D82C20", fg: "#fff" },
-      { name: "SQL", icon: <span className="font-extrabold text-[10px] leading-none tracking-wider">SQL</span>, bg: "#4479A1", fg: "#fff" },
+      { name: "MongoDB", icon: SiMongodb, brand: "#47A248", surface: "#132D16" },
+      { name: "PostgreSQL", icon: SiPostgresql, brand: "#4169E1", surface: "#101D48" },
+      { name: "Supabase", icon: SiSupabase, brand: "#3ECF8E", surface: "#0F3327" },
+      { name: "Firestore", icon: SiFirebase, brand: "#FFCA28", surface: "#3A2905" },
+      { name: "Redis", icon: SiRedis, brand: "#FF4438", surface: "#3E1110" },
+      { name: "SQL", icon: SiPostgresql, brand: "#4479A1", surface: "#102C3F" },
     ],
   },
   {
     label: "DevOps & Tools",
     items: [
-      { name: "Docker", icon: <DockerIcon />, bg: "#2496ED", fg: "#fff" },
-      { name: "Kubernetes", icon: <KubernetesIcon />, bg: "#326CE5", fg: "#fff" },
-      { name: "Git", icon: <GitIcon />, bg: "#F05032", fg: "#fff" },
-      { name: "GitHub", icon: <GitHubIcon />, bg: "#181717", fg: "#fff" },
+      { name: "Docker", icon: SiDocker, brand: "#2496ED", surface: "#082B46" },
+      { name: "Kubernetes", icon: SiKubernetes, brand: "#326CE5", surface: "#101F49" },
+      { name: "Git", icon: SiGit, brand: "#F05032", surface: "#3D160E" },
+      { name: "GitHub", icon: SiGithub, brand: "#FFFFFF", surface: "#181717" },
     ],
   },
   {
     label: "AI / ML Libraries",
     items: [
-      { name: "NumPy", icon: <span className="font-extrabold text-[10px] leading-none">Np</span>, bg: "#013243", fg: "#4DABCF" },
-      { name: "Pandas", icon: <PandasIcon />, bg: "#150458", fg: "#E70488" },
-      { name: "Matplotlib", icon: <span className="font-extrabold text-[10px] leading-none">Plt</span>, bg: "#11557C", fg: "#fff" },
-      { name: "Scikit-learn", icon: <span className="font-extrabold text-[10px] leading-none">Sk</span>, bg: "#F7931E", fg: "#fff" },
-      { name: "OpenCV", icon: <span className="font-extrabold text-[10px] leading-none">CV</span>, bg: "#5C3EE8", fg: "#fff" },
+      { name: "NumPy", icon: SiNumpy, brand: "#4DABCF", surface: "#102F3C" },
+      { name: "Pandas", icon: SiPandas, brand: "#E70488", surface: "#30051F" },
+      { name: "Matplotlib", icon: SiNumpy, brand: "#11557C", surface: "#092A3D" },
+      { name: "Scikit-learn", icon: SiScikitlearn, brand: "#F7931E", surface: "#3A2108" },
+      { name: "OpenCV", icon: SiOpencv, brand: "#5C3EE8", surface: "#1E1649" },
     ],
   },
 ];
 
-/* ─── Badge component ────────────────────────────────────────────── */
-function TechBadge({
-  name,
-  icon,
-  bg,
-  fg,
-  index,
-}: {
-  name: string;
-  icon: React.ReactNode;
-  bg: string;
-  fg: string;
-  index: number;
-}) {
+function TechBadge({ item, index }: { item: TechItem; index: number }) {
+  const Icon = item.icon;
+
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.85, y: 8 }}
+      initial={{ opacity: 0, scale: 0.92, y: 8 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.3, delay: index * 0.04 }}
-      whileHover={{ scale: 1.06, y: -2 }}
-      className="group relative flex items-center gap-2 rounded-md px-3 py-2 cursor-default select-none overflow-hidden"
-      style={{ backgroundColor: bg, color: fg }}
+      transition={{ duration: 0.28, delay: index * 0.035 }}
+      whileHover={{ scale: 1.04, y: -2 }}
+      className="group relative flex items-center gap-2.5 overflow-hidden rounded-lg border border-border/70 bg-card px-3 py-2.5 text-sm shadow-sm transition-colors hover:border-foreground/20"
     >
-      {/* shine overlay on hover */}
       <span
-        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
-          background:
-            "linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.12) 50%, transparent 70%)",
+          background: `linear-gradient(120deg, transparent 15%, ${item.brand}18 45%, transparent 75%)`,
         }}
       />
-      <span className="relative z-10 flex items-center justify-center w-4 h-4 shrink-0">
-        {icon}
-      </span>
       <span
-        className="relative z-10 text-[11px] font-bold tracking-widest uppercase whitespace-nowrap"
-        style={{ fontFamily: "'Space Mono', 'Courier New', monospace" }}
+        className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-white/10 shadow-inner"
+        style={{ backgroundColor: item.surface, color: item.brand }}
       >
-        {name}
+        <Icon className="h-4.5 w-4.5" aria-hidden />
+      </span>
+      <span className="relative z-10 font-medium tracking-normal text-foreground">
+        {item.name}
       </span>
     </motion.div>
   );
 }
 
-/* ─── Section ────────────────────────────────────────────────────── */
 const Skills = () => {
   return (
     <section id="tech-stack" className="section-padding border-t border-border">
-      {/* Google Font import — add to your layout if not already present */}
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');`}</style>
-
       <div className="container-max space-y-12">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -289,39 +162,26 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        {/* Categories */}
         <div className="space-y-10">
-          {categories.map((cat, ci) => (
+          {categories.map((category, categoryIndex) => (
             <motion.div
-              key={cat.label}
+              key={category.label}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: ci * 0.07 }}
+              transition={{ duration: 0.45, delay: categoryIndex * 0.07 }}
               className="space-y-3"
             >
-              {/* Category label */}
-              <p
-                className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground"
-                style={{ fontFamily: "'Space Mono', monospace" }}
-              >
-                {cat.label}
-              </p>
+              <div className="flex items-center gap-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                  {category.label}
+                </p>
+                <div className="h-px flex-1 bg-border" />
+              </div>
 
-              {/* Thin divider */}
-              <div className="h-px w-full bg-border mb-3" />
-
-              {/* Badge row */}
-              <div className="flex flex-wrap gap-2">
-                {cat.items.map((tech, ti) => (
-                  <TechBadge
-                    key={tech.name}
-                    name={tech.name}
-                    icon={tech.icon}
-                    bg={tech.bg}
-                    fg={tech.fg}
-                    index={ti}
-                  />
+              <div className="flex flex-wrap gap-2.5">
+                {category.items.map((item, itemIndex) => (
+                  <TechBadge key={item.name} item={item} index={itemIndex} />
                 ))}
               </div>
             </motion.div>

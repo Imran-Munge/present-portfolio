@@ -110,7 +110,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${jetbrainsMono.variable} font-sans antialiased bg-background text-foreground`}
+        className={`${geistSans.variable} ${jetbrainsMono.variable} font-sans bg-background text-foreground`}
       >
         <ThemeProvider
           attribute="class"
