@@ -8,13 +8,20 @@ export default function manifest(): MetadataRoute.Manifest {
     description: personalInfo.description,
     start_url: "/",
     display: "standalone",
-    background_color: "#0a0a0a",
-    theme_color: "#0a4d2c",
+    background_color: "#000000",
+    theme_color: "#d2bb97",
     icons: [
       {
-        src: "/og-image.png",
-        sizes: "1200x630",
+        src: "/web-app-manifest-192x192.png",
+        sizes: "192x192",
         type: "image/png",
+        purpose: "maskable",
+      },
+      {
+        src: "/web-app-manifest-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
       },
     ],
   };
